@@ -31,7 +31,7 @@ function createTemplate({ cart }) {
         <div class="header-count__block">
           <p class="text text--size-20 header-count__text">сумма</p>
           <b class="price price--size-min header-count__price">
-            ${getPriceString(sum)}
+            ${sum}
             <span>Р</span>
           </b>
         </div>
