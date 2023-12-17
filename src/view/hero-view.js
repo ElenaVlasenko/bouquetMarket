@@ -1,6 +1,6 @@
 import AbstractStatefulView from "../framework/view/abstract-stateful-view.js";
 
-function createHeroViewTemplate() {
+function createTemplate() {
 
     return `
     <section class="hero">
@@ -21,12 +21,11 @@ function createHeroViewTemplate() {
     </div>
   </section>
    `;
+}
+
+export default class HeroView extends AbstractStatefulView {
+
+  get template() {
+    return createTemplate();
   }
-
-  export default class HeroView extends AbstractStatefulView {
-
-    get template() {
-      return createHeroViewTemplate();
-    }
-
-  }
+}
