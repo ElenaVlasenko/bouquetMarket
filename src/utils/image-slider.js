@@ -4,7 +4,7 @@ class ImageSlider {
   }
 
   init() {
-    if (document.querySelector(this.sliderElement)) {
+    if (this.sliderElement) {
       this.slider = new Swiper(this.sliderElement, {//eslint-disable-line
         slidesPerView: 1,
         spaceBetween: 100,

@@ -1,4 +1,4 @@
-import PopupView from "../view/popup-view.js";
+import PopupView from '../view/popup-view.js';
 
 export default class PopupPresenter {
 
@@ -8,9 +8,6 @@ export default class PopupPresenter {
   constructor({ popupContainer, bouquetsModel }) {
     this.#popupContainer = popupContainer;
     this.bouquetsModel = bouquetsModel;
-  }
-
-  init() {
   }
 
   renderPopup({ bouquet }) {
@@ -24,9 +21,17 @@ export default class PopupPresenter {
 
     this.#popupContainer.clear();
 
+    const onAddToCartButtonClick = (id) => {
+      this.bouquetsModel.addToCart(id).catch((err) => {
+        throw err;
+      });
+    };
+
+
     this.#popupView = new PopupView({ bouquet }, {
       onCancel,
       onEsc,
+      onAddToCartButtonClick,
     });
 
     this.#popupContainer.add(this.#popupView);

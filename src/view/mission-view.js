@@ -1,4 +1,4 @@
-import AbstractStatefulView from "../framework/view/abstract-stateful-view.js";
+import AbstractStatefulView from '../framework/view/abstract-stateful-view.js';
 
 function createTemplate() {
 
@@ -26,5 +26,4 @@ export default class MissionView extends AbstractStatefulView {
   get template() {
     return createTemplate();
   }
-
 }

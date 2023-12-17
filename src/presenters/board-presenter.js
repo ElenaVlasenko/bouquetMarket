@@ -1,7 +1,7 @@
-import { RenderPosition } from "../framework/render.js";
-import HeroView from "../view/hero-view.js";
-import MissionView from "../view/mission-view.js";
-import AdvantagesView from "../view/advantages-view.js";
+import { RenderPosition } from '../framework/render.js';
+import HeroView from '../view/hero-view.js';
+import MissionView from '../view/mission-view.js';
+import AdvantagesView from '../view/advantages-view.js';
 
 export default class BoardPresenter {
 
@@ -11,7 +11,6 @@ export default class BoardPresenter {
   #missionContainer = null;
   #advantagesContainer = null;
   #advantagesView = null;
-
 
   constructor({ mainContainer, missionContainer, advantagesContainer }) {
     this.#mainContainer = mainContainer;

@@ -1,6 +1,6 @@
-import BouquetCardView from "../view/bouquet-card-view";
-import { EVENTS } from "../models/bouquets-model.js";
-import { modals, initModals } from "../modals/init-modals";
+import BouquetCardView from '../view/bouquet-card-view';
+import { EVENTS } from '../models/bouquets-model.js';
+import { modals, initModals } from '../modals/init-modals';
 
 export default class BouquetCardsPresenter {
   #bouquetsContainer = null;
@@ -15,8 +15,6 @@ export default class BouquetCardsPresenter {
 
   init() {
     initModals();
-    // this.#preLoadMoviesMessageView = new PreLoadMoviesMessageView('Loading...');
-    // this.#cardsContainer.add(this.#preLoadMoviesMessageView);
 
     this.bouquetsModel.addObserver(EVENTS.DISPLAYED_BOUQUETS_ADDED, (bouquets) => this.#onDisplayedBouquetsAdded(bouquets));
 
@@ -29,24 +27,17 @@ export default class BouquetCardsPresenter {
       EVENTS.SELECTED_COLOR_FILTER_CHANGED,
       () => this.#clearContainer()
     );
-    // this.#onDisplayedBouquetsAdded(bouquets);
 
     this.bouquetsModel.addObserver(EVENTS.DISPLAYED_BOUQUETS_CHANGED, (bouquets) => {
       this.onDisplayedBouquetsChanged(bouquets);
     });
   }
-    // );
-    #clearContainer() {
-      this.#bouquetsContainer.clear();
-      // this.#preLoadMoviesMessageView = null;
-    }
 
+  #clearContainer() {
+    this.#bouquetsContainer.clear();
+  }
 
   #onDisplayedBouquetsAdded(bouquets) {
-    console.log('bouquets:', bouquets)
-    // if (!movies.length) {
-    //   this.#cardsContainer.add(new NoMoviesView(this.moviesModel.selectedFilter));
-    // }
     bouquets.forEach((bouquet) => this.#renderBouquetCards(bouquet));
   }
 
@@ -57,24 +48,11 @@ export default class BouquetCardsPresenter {
 
   #renderBouquetCards(bouquet) {
     const onClick = async (bouquet) => {
-      modals.open("popup-data-attr");
-      this.#popupPresenter.renderPopup({ bouquet });
+      modals.open('popup-data-attr');
+      const fullBouquetData = await this.bouquetsModel.getBouquet(bouquet.id);
+      this.#popupPresenter.renderPopup({ bouquet: fullBouquetData });
     };
-    // const onWatchinglistButtonClick = (movieId) => {
-    //   this.#uiBlocker.block();
-    //   this.moviesModel.switcIncludingToWatchList(movieId).catch((err) => this.#handleError(movieId, err));
-    // };
-    // const onAlreadyWatchedlistButtonClick = (movieId) => {
-    //   this.#uiBlocker.block();
-    //   this.moviesModel.switcIncludingToAlreadyWatchedList(movieId).catch((err) => this.#handleError(movieId, err));
-    // };
-    // const onFavoriteListButtonClick = (movieId) => {
-    //   this.#uiBlocker.block();
-    //   this.moviesModel.switcIncludingToFavoriteList(movieId).catch((err) => this.#handleError(movieId, err));
-    // };
-    // const movieCardView = new MovieCardView(bouquet, { onClick, onWatchinglistButtonClick, onAlreadyWatchedlistButtonClick, onFavoriteListButtonClick});
     const bouquetCardView = new BouquetCardView(bouquet, { onClick } );
-    // this.#movieViewMap.set(bouquet.id, movieCardView);
     this.#bouquetsContainer.add(bouquetCardView);
   }
 

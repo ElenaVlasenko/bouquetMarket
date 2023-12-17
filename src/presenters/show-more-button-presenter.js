@@ -7,10 +7,6 @@ export default class ShowMoreButtonPresenter {
   #bouquetsModel = null;
   #showMoreButtonView = null;
 
-  // constructor({movieCardsContainer, moviesModel}) {
-  //   this.#movieCardsContainer = movieCardsContainer;
-  //   this.#moviesModel = moviesModel;
-  // }
   constructor({bouquetListContainer, bouquetsModel}) {
     this.#bouquetListContainer = bouquetListContainer;
     this.#bouquetsModel = bouquetsModel;
@@ -26,31 +22,19 @@ export default class ShowMoreButtonPresenter {
       }
     );
 
-  //   this.#moviesModel.addObserver(
-  //     EVENTS.MOVIES_PART_DISPLAYED,
-  //     () => {
-  //       this.#showMoreButtonView.show();
-  //     }
-  //   );
-
-  //   this.#moviesModel.addObserver(
-  //     EVENTS.DATA_LOADING_ERROR,
-  //     () => {
-  //       this.#showMoreButtonView.hide();
-  //     }
-  //   );
+    this.#bouquetsModel.addObserver(
+      EVENTS.BOUQUETS_PART_DISPLAYED,
+      () => {
+        this.#showMoreButtonView.show();
+      }
+    );
   }
-  // #renderShowMoreButton() {
-  //   const onClick = () => {
-  //     this.#moviesModel.addDisplayedMovies();
-  //   };
-  //   const showMoreButtonView = new ShowMoreButtonView({ onClick });
-  //   this.#showMoreButtonView = showMoreButtonView;
-  //   this.#movieCardsContainer.add(this.#showMoreButtonView, RenderPosition.AFTEREND);
-  // }
 
   #renderShowMoreButton() {
-    const showMoreButtonView = new ShowMoreButtonView();
+    const onClick = () => {
+      this.#bouquetsModel.addDisplayedBouquets();
+    };
+    const showMoreButtonView = new ShowMoreButtonView({ onClick });
     this.#showMoreButtonView = showMoreButtonView;
     this.#bouquetListContainer.add(this.#showMoreButtonView, RenderPosition.AFTEREND);
   }

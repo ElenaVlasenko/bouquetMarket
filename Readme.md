@@ -1,6 +1,7 @@
-# Проект «{{projectTitle}}»
+# Проект «{{bouquetMarket}}»
 
-* Студент: [{{userName}}]({{userProfile}}).
+* Студент: [{{ElenaVlasenko}}]({{https://github.com/ElenaVlasenko/}}).
+* Кол-во часов: 21
 
 ---
 

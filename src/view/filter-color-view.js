@@ -1,5 +1,5 @@
-import AbstractStatefulView from "../framework/view/abstract-stateful-view.js";
-import { BOUQUETS_COLOR_FILTER } from "../const.js";
+import AbstractStatefulView from '../framework/view/abstract-stateful-view.js';
+import { BOUQUETS_COLOR_FILTER } from '../const.js';
 
 function createTemplate({ selectedFilter }) {
 

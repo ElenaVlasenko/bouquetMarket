@@ -1,5 +1,5 @@
-import AbstractStatefulView from "../framework/view/abstract-stateful-view.js";
-import { REASON_FILTERS } from "../const.js";
+import AbstractStatefulView from '../framework/view/abstract-stateful-view.js';
+import { REASON_FILTERS } from '../const.js';
 
 function createTemplate({ selectedFilter }) {
     return `

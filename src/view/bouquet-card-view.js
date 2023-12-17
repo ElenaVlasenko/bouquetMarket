@@ -1,4 +1,5 @@
-import AbstractStatefulView from "../framework/view/abstract-stateful-view.js";
+import AbstractStatefulView from '../framework/view/abstract-stateful-view.js';
+import { getPriceString } from '../utils/get-price-string.js';
 
 function createTemplate(bouquet) {
   const { description, title, price, previewImage } = bouquet;
@@ -20,7 +21,7 @@ function createTemplate(bouquet) {
         </div>
         <div class="item-card__desc-wrap">
           <h3 class="title title--h4 item-card__title">${title}</h3>
-          <div class="item-card__price-wrap"><b class="item-card__formatted-price">${price}</b><span class="item-card__currency">р</span></div>
+          <div class="item-card__price-wrap"><b class="item-card__formatted-price">${getPriceString(price)}</b><span class="item-card__currency">р</span></div>
         </div>
         <p class="text text--size-20 item-card__desc">${description}</p>
       </div>
@@ -36,7 +37,6 @@ export default class BouquetCardView extends AbstractStatefulView {
     this._setState({ bouquet })
     this.#handleClick = onClick;
     this._restoreHandlers();
-
   }
 
   get template() {
@@ -48,11 +48,9 @@ export default class BouquetCardView extends AbstractStatefulView {
   }
 
   #addOnClickHandler() {
-
     this.element.addEventListener('click', (evt) => {
       evt.preventDefault();
       this.#handleClick(this._state.bouquet);
     });
   }
-
 }

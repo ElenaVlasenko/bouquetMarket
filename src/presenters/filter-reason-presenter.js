@@ -1,5 +1,5 @@
-import FilterReasonView from "../view/filter-reason-view.js";
-import { EVENTS } from "../models/bouquets-model.js";
+import FilterReasonView from '../view/filter-reason-view.js';
+import { EVENTS } from '../models/bouquets-model.js';
 
 export default class FilterReasonPresenter {
   #filterReasonContainer = null;

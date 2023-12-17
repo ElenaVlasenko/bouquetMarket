@@ -1,9 +1,7 @@
-import AbstractStatefulView from "../framework/view/abstract-stateful-view.js";
-import { SORTING_ORDER } from "../const.js";
+import AbstractStatefulView from '../framework/view/abstract-stateful-view.js';
+import { SORTING_ORDER } from '../const.js';
 
 function createTemplate({ sortingOrder }) {
-console.log('sortingOrder:', sortingOrder)
-
   return `
   <div class="sorting-price">
     <h3 class="title sorting-price__title">Цена</h3><a data-sorting="${SORTING_ORDER.ASC}" class="sorting-price__link sorting-price__link--incr ${SORTING_ORDER.ASC === sortingOrder ? ' sorting-price__link--active' : ''}" href="#" aria-label="сортировка по возрастанию цены">

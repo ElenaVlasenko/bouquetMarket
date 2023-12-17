@@ -1,5 +1,5 @@
-import FilterColorView from "../view/filter-color-view.js";
-import { EVENTS } from "../models/bouquets-model.js";
+import FilterColorView from '../view/filter-color-view.js';
+import { EVENTS } from '../models/bouquets-model.js';
 
 export default class FilterColorPresenter {
   #filterColorContainer = null;
